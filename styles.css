@@ -384,13 +384,16 @@ code { font-family: var(--mono); font-size: 0.92em; }
 .card-meta {
   position: relative; z-index: 2;
   border-top: 1px solid var(--border);
-  padding: 14px 18px;
-  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 18px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
   background: rgba(10,13,20,0.6);
   font-size: 12px; color: var(--muted);
 }
-.card-meta .name { color: var(--text); font-weight: 700; letter-spacing: 0.04em; }
-.card-meta .cmd { color: var(--accent); }
+.card-meta .name {
+  color: var(--text); font-weight: 700; letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.card-meta .cmd { color: var(--accent); white-space: nowrap; }
 
 /* Install */
 .install { padding: 64px 0 96px; border-top: 1px solid var(--border); }
@@ -506,43 +509,36 @@ code { font-family: var(--mono); font-size: 0.92em; }
 .g-noir-foot { position:relative; display:flex; justify-content:space-between; margin-top:12px; font-size:10px; letter-spacing:.25em; }
 .g-noir-stamp { color:#000; background:#fff; padding:2px 6px; transform:rotate(-3deg); border:1px solid #000; }
 
-/* ── Status badges ─────────────────────────────────────────────────────────── */
-.card-status {
-  position: absolute; top: 36px; right: 14px; z-index: 4;
-}
+/* ── Status badges — inside card-meta bar, no overlap ──────────────────────── */
+.card-status { display: none; } /* hidden — badge moved to card-meta */
+
 .badge {
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
-  padding: 3px 8px; border-radius: 4px; font-weight: 700;
+  padding: 2px 7px; border-radius: 3px; font-weight: 700;
 }
-.badge-working {
-  background: rgba(39,201,63,0.15); color: #27c93f;
-  border: 1px solid rgba(39,201,63,0.3);
-}
+.badge-working { display: none; } /* don't show working badge at all */
 .badge-maintenance {
   background: rgba(255,122,24,0.15); color: #ff7a18;
-  border: 1px solid rgba(255,122,24,0.3);
-}
-.badge-animated {
-  background: rgba(134,246,255,0.15); color: #86f6ff;
-  border: 1px solid rgba(134,246,255,0.3);
+  border: 1px solid rgba(255,122,24,0.4);
 }
 
 /* ── Maintenance card dimming ──────────────────────────────────────────────── */
-.card-maintenance .card-bg { opacity: 0.5; filter: grayscale(40%); }
+.card-maintenance .card-bg { opacity: 0.4; filter: grayscale(50%); }
 .card-maintenance:hover { border-color: #ff7a18; }
+.card-maintenance .card-meta { border-top-color: rgba(255,122,24,0.3); }
 
 /* ── Maintenance overlay on preview ───────────────────────────────────────── */
 .maintenance-overlay {
   position: absolute; inset: 0; z-index: 10;
-  background: rgba(10,13,20,0.75);
-  backdrop-filter: blur(3px);
+  background: rgba(10,13,20,0.82);
+  backdrop-filter: blur(4px);
   display: flex; align-items: center; justify-content: center;
   border-radius: 6px;
 }
 .maintenance-overlay span {
-  font-family: var(--mono); font-size: 13px;
-  color: #ff7a18; letter-spacing: 0.15em;
-  border: 1px solid rgba(255,122,24,0.4);
-  padding: 8px 16px; border-radius: 4px;
-  background: rgba(255,122,24,0.08);
+  font-family: var(--mono); font-size: 12px;
+  color: #ff7a18; letter-spacing: 0.18em; text-transform: uppercase;
+  border: 1px solid rgba(255,122,24,0.35);
+  padding: 8px 18px; border-radius: 4px;
+  background: rgba(255,122,24,0.06);
 }

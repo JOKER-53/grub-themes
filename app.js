@@ -243,10 +243,9 @@ function renderGrid() {
       <article class="card${t.status === "maintenance" ? " card-maintenance" : ""}" data-slug="${t.slug}">
         <div class="card-bg" style="background-image:url('${t.background}')"></div>
         <p class="card-head">${num} // <b>${escapeHtml(t.title.toUpperCase())}</b></p>
-        <div class="card-status">${statusBadge(t)}</div>
         <div class="card-preview">${grubMockHtml(t)}</div>
         <div class="card-meta">
-          <span class="name">${escapeHtml(t.tagline)}</span>
+          <span class="name">${escapeHtml(t.tagline)} ${t.status === "maintenance" ? statusBadge(t) : ""}</span>
           <span class="cmd">sudo ./install.sh ${t.slug}</span>
         </div>
       </article>`;
