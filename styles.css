@@ -505,3 +505,44 @@ code { font-family: var(--mono); font-size: 0.92em; }
 .g-noir-text { font-size:13px; letter-spacing:.06em; }
 .g-noir-foot { position:relative; display:flex; justify-content:space-between; margin-top:12px; font-size:10px; letter-spacing:.25em; }
 .g-noir-stamp { color:#000; background:#fff; padding:2px 6px; transform:rotate(-3deg); border:1px solid #000; }
+
+/* ── Status badges ─────────────────────────────────────────────────────────── */
+.card-status {
+  position: absolute; top: 36px; right: 14px; z-index: 4;
+}
+.badge {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+  padding: 3px 8px; border-radius: 4px; font-weight: 700;
+}
+.badge-working {
+  background: rgba(39,201,63,0.15); color: #27c93f;
+  border: 1px solid rgba(39,201,63,0.3);
+}
+.badge-maintenance {
+  background: rgba(255,122,24,0.15); color: #ff7a18;
+  border: 1px solid rgba(255,122,24,0.3);
+}
+.badge-animated {
+  background: rgba(134,246,255,0.15); color: #86f6ff;
+  border: 1px solid rgba(134,246,255,0.3);
+}
+
+/* ── Maintenance card dimming ──────────────────────────────────────────────── */
+.card-maintenance .card-bg { opacity: 0.5; filter: grayscale(40%); }
+.card-maintenance:hover { border-color: #ff7a18; }
+
+/* ── Maintenance overlay on preview ───────────────────────────────────────── */
+.maintenance-overlay {
+  position: absolute; inset: 0; z-index: 10;
+  background: rgba(10,13,20,0.75);
+  backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 6px;
+}
+.maintenance-overlay span {
+  font-family: var(--mono); font-size: 13px;
+  color: #ff7a18; letter-spacing: 0.15em;
+  border: 1px solid rgba(255,122,24,0.4);
+  padding: 8px 16px; border-radius: 4px;
+  background: rgba(255,122,24,0.08);
+}
