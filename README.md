@@ -157,6 +157,7 @@ sudo ./install.sh -u --purge       # restore + delete theme files from /boot
 ---
 
 ## Repo layout
+```
 .
 ├── install.sh # interactive installer
 ├── README.md
@@ -176,7 +177,7 @@ sudo ./install.sh -u --purge       # restore + delete theme files from /boot
 ├── gas_station/
 ├── celebrate/
 └── ben/
-
+```
 ---
 
 ## License
