@@ -227,9 +227,6 @@ function statusBadge(theme) {
   if (theme.status === "maintenance") {
     return `<span class="badge badge-maintenance">🔧 Maintenance</span>`;
   }
-  if (theme.tags && theme.tags.includes("animated")) {
-    return `<span class="badge badge-animated">✨ Animated coming soon</span>`;
-  }
   return `<span class="badge badge-working">✅ Working</span>`;
 }
 

@@ -16,17 +16,17 @@
     "tags": [
       "anime",
       "neon",
-      "illustration",
-      "animated"
+      "illustration"
     ],
     "menu": {
       "title": "01 / miku.boot",
       "timeout": "auto \u00b7 5s",
       "entries": [
-        "Arch Linux",
-        "Arch Linux (LTS)",
-        "Windows 11",
-        "UEFI Settings"
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware",
+        "Snapshots"
       ],
       "selected": 0
     },
@@ -55,10 +55,11 @@
       "title": "tux@grub:~$",
       "timeout": "10s",
       "entries": [
-        "GNU/Linux",
+        "CachyOS Linux",
         "Advanced options",
-        "Memtest86+",
-        "System setup"
+        "Windows Boot Manager",
+        "UEFI Firmware",
+        "Snapshots"
       ],
       "selected": 0
     },
@@ -88,10 +89,10 @@
       "title": "\u25bc SELECT GAME \u25bc",
       "timeout": "P1 PRESS START",
       "entries": [
-        "LINUX-1",
-        "LINUX-2",
-        "OPTIONS",
-        "RESET"
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
       ],
       "selected": 0
     },
@@ -147,17 +148,16 @@
     "tags": [
       "cyberpunk",
       "neon",
-      "animated",
       "lofi"
     ],
     "menu": {
       "title": "// runtime.select",
       "timeout": "T-03",
       "entries": [
-        "./arch",
-        "./arch-lts",
-        "./win11",
-        "./recovery"
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
       ],
       "selected": 0
     },
@@ -214,19 +214,18 @@
     "tags": [
       "automotive",
       "cinematic",
-      "hud",
-      "animated"
+      "hud"
     ],
     "menu": {
       "title": "M:// IGNITION SEQUENCE",
       "timeout": "GEAR \u25b2 04",
       "entries": [
-        "DRIVE \u00b7 Arch",
-        "SPORT \u00b7 Fedora",
-        "COMFORT \u00b7 Win 11",
-        "PARK \u00b7 UEFI"
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
       ],
-      "selected": 1
+      "selected": 0
     },
     "status": "working"
   },
@@ -321,10 +320,10 @@
       "title": "CHAPTER I \u00b7 THE BOOT",
       "timeout": "MIDNIGHT 00:00",
       "entries": [
-        "ARCH \u2014 the suspect",
-        "DEBIAN \u2014 the witness",
-        "WIN 11 \u2014 the dame",
-        "RECOVERY \u2014 the alibi"
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
       ],
       "selected": 0
     },
