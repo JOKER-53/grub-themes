@@ -4,23 +4,24 @@ desktop-color: "#000000"
 
 + boot_menu {
     left                       = 9%
-    top                        = 16%
-    width                      = 66%
-    height                     = 48%
+    top                        = 14%
+    width                      = 55%
+    height                     = 68%
     item_font                  = "Archivo Black Regular 24"
     item_color                 = "#c8c8c8"
     selected_item_color        = "#000000"
-    item_height                = 88
-    item_padding               = 14
+    item_height                = 120
+    item_padding               = 20
     item_spacing               = 0
     selected_item_pixmap_style = "box/sel_*.png"
     scrollbar                  = false
 }
+
 + progress_bar {
     id           = "__timeout__"
     left         = 9%
     bottom       = 4%
-    width        = 66%
+    width        = 55%
     height       = 3
     fg_color     = "#ffffff"
     bg_color     = "#1a1a1a"

@@ -3,24 +3,25 @@ desktop-image: "background_ui.png"
 desktop-color: "#03060c"
 
 + boot_menu {
-    left                       = 4%
-    top                        = 22%
-    width                      = 57%
-    height                     = 50%
+    left                       = 5%
+    top                        = 17%
+    width                      = 54%
+    height                     = 68%
     item_font                  = "Orbitron Regular 20"
     item_color                 = "#9fc6ff"
     selected_item_color        = "#ffffff"
-    item_height                = 130
-    item_padding               = 10
-    item_spacing               = 0
+    item_height                = 110
+    item_padding               = 20
+    item_spacing               = 4
     selected_item_pixmap_style = "box/sel_*.png"
     scrollbar                  = false
 }
+
 + progress_bar {
     id           = "__timeout__"
-    left         = 4%
+    left         = 5%
     bottom       = 3%
-    width        = 57%
+    width        = 54%
     height       = 4
     fg_color     = "#0095ff"
     bg_color     = "#020810"

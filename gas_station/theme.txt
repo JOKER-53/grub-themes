@@ -4,23 +4,24 @@ desktop-color: "#2a1408"
 
 + boot_menu {
     left                       = 5%
-    top                        = 50%
-    width                      = 90%
-    height                     = 29%
+    top                        = 36%
+    width                      = 37%
+    height                     = 47%
     item_font                  = "DotGothic16 Regular 24"
     item_color                 = "#ffe2c2"
     selected_item_color        = "#ffffff"
-    item_height                = 100
-    item_padding               = 10
-    item_spacing               = 0
+    item_height                = 90
+    item_padding               = 20
+    item_spacing               = 2
     selected_item_pixmap_style = "box/sel_*.png"
     scrollbar                  = false
 }
+
 + progress_bar {
     id           = "__timeout__"
     left         = 5%
-    bottom       = 2%
-    width        = 90%
+    bottom       = 3%
+    width        = 37%
     height       = 4
     fg_color     = "#ff7a18"
     bg_color     = "#1a0a04"

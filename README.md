@@ -1,32 +1,4 @@
-> ⚠️ **Status Notice:** This repository currently has known bugs. I am actively working on fixing them. Updates will be pushed soon!
-
-## Working Themes
-
-| #  | Slug          | Vibe                                                        |
-| -- | ------------- | ----------------------------------------------------------- |
-| 01 | `miku`        | Centered cyan hologram panel, vocaloid energy               |
-| 02 | `penguin`     | ASCII Tux terminal, classic GNU/Linux feel                  |
-| 03 | `nes`         | 8-bit cartridge select screen, PRESS START                  |
-| 04 | `street`      | Cyberpunk right-rail terminal, magenta neon glitch          |
-| 05 | `noir`        | Spider-Noir comic panel, halftone rain, hard-boiled menu    |
-
-
-Use these until I complete others :) ......!
-
-# 🛠️ Work In Progress
-
-Please note that the installer script and some theme assets are undergoing heavy maintenance. If you encounter issues while configuring your bootloader, you can track current progress below or wait for the next stable update.
-
-### 🔍 Current Status:
-- [x] **Fixing `install.sh` edge cases**: Working on distribution-specific layout detection bugs.
-- [x] **Resolution adjustments**: Tweaking `theme.txt` files to prevent pixelation on certain monitors.
-- [ ] **Testing environments**: Ensuring full compatibility with system updates.
-
-*If you find a new bug that isn't mentioned here, please feel free to open a formal GitHub Issue!*
-
----
-
-# JOKER53's-Grub
+# JOKER53's GRUB
 
 > A curated collection of GRUB2 boot-menu themes for Linux, with a one-command interactive installer.
 
@@ -47,22 +19,22 @@ Pick a theme from the dropdown, reboot, enjoy.
 
 ## What you get
 
-Each theme ships its own `background.{png,jpg,gif}` and a hand-written `theme.txt` with a distinct layout, palette, and typography:
+Each theme ships its own `background_ui.png` (pre-rendered with real fonts via Python/PIL) and a hand-written `theme.txt`:
 
-| #  | Slug          | Vibe                                                        |
-| -- | ------------- | ----------------------------------------------------------- |
-| 01 | `miku`        | Centered cyan hologram panel, vocaloid energy               |
-| 02 | `penguin`     | ASCII Tux terminal, classic GNU/Linux feel                  |
-| 03 | `nes`         | 8-bit cartridge select screen, PRESS START                  |
-| 04 | `nimbus`      | macOS-style bottom dock under a soft animated sky           |
-| 05 | `street`      | Cyberpunk right-rail terminal, magenta neon glitch          |
-| 06 | `gas_station` | Retro pump display, warm lo-fi sunset strip                 |
-| 07 | `bmw`         | Cinematic automotive HUD, telemetry bars and throttle       |
-| 08 | `celebrate`   | Hand-drawn line catalog, every OS a different hat           |
-| 09 | `ben`         | Ben 10 Omnitrix dial selector, green plasma core            |
-| 10 | `noir`        | Spider-Noir comic panel, halftone rain, hard-boiled menu    |
+| #  | Slug          | Vibe                                                        | Status |
+| -- | ------------- | ----------------------------------------------------------- | ------ |
+| 01 | `miku`        | Centered cyan hologram panel, vocaloid energy               | ✅ |
+| 02 | `penguin`     | ASCII Tux terminal, classic GNU/Linux feel                  | ✅ |
+| 03 | `nes`         | 8-bit cartridge select screen, PRESS START                  | ✅ |
+| 04 | `street`      | Cyberpunk right-rail terminal, magenta neon glitch          | ✅ |
+| 05 | `noir`        | Spider-Noir comic panel, halftone rain, hard-boiled menu    | ✅ |
+| 06 | `bmw`         | Cinematic automotive HUD, telemetry bars and throttle       | ✅ |
+| 07 | `nimbus`      | macOS-style bottom dock under a soft animated sky           | 🔧 |
+| 08 | `gas_station` | Retro pump display, warm lo-fi sunset strip                 | 🔧 |
+| 09 | `celebrate`   | Hand-drawn line catalog, every OS a different hat           | 🔧 |
+| 10 | `ben`         | Ben 10 Omnitrix dial selector, green plasma core            | 🔧 |
 
-Run `sudo ./install.sh -l` to print the live list from your local clone.
+✅ = fully working | 🔧 = in progress
 
 ---
 
@@ -72,95 +44,86 @@ Run `sudo ./install.sh -l` to print the live list from your local clone.
 
 1. Detects your GRUB layout (`/boot/grub` on Debian/Ubuntu/Arch, `/boot/grub2` on Fedora/RHEL).
 2. Runs pre-flight checks — verifies GRUB is installed, `theme.txt` exists and is non-empty, and `/boot` has enough free space before writing anything.
-3. Backs up `/etc/default/grub` → `/etc/default/grub.gorgeous.bak` **on first run only**, so your original config is always preserved across re-installs.
-4. Copies the chosen theme into `/boot/grub/themes/<slug>/`. If the copy fails for any reason, the partial files are automatically cleaned up.
+3. Backs up `/etc/default/grub` → `/etc/default/grub.gorgeous.bak` **on first run only**.
+4. Copies the chosen theme into `/boot/grub/themes/<slug>/`.
 5. Upserts these keys in `/etc/default/grub`:
    - `GRUB_THEME=/boot/grub/themes/<slug>/theme.txt`
-   - `GRUB_TIMEOUT=5`
-   - `GRUB_GFXMODE=auto`
+   - `GRUB_TIMEOUT=15`
+   - `GRUB_GFXMODE=1920x1080x32`
    - `GRUB_GFXPAYLOAD_LINUX=keep`
-   - `GRUB_TERMINAL_OUTPUT=gfxterm` _(required — themes don't render in text mode)_
-6. Regenerates the GRUB config with `update-grub`, or `grub[2]-mkconfig -o <cfg>` if `update-grub` is unavailable.
+   - `GRUB_TERMINAL_OUTPUT=gfxterm`
+6. Regenerates GRUB config with `update-grub` or `grub[2]-mkconfig`.
 
-### Commands
+---
+
+## Commands
 
 ```bash
-sudo ./install.sh              # interactive dropdown — pick from the numbered list
-sudo ./install.sh miku         # install a specific theme by slug
-sudo ./install.sh -l           # list all installable themes
-sudo ./install.sh -u           # restore /etc/default/grub from backup
-sudo ./install.sh -u --purge   # restore config AND delete theme files from /boot
-sudo ./install.sh -h           # help
+sudo ./install.sh                  # interactive dropdown
+sudo ./install.sh miku             # install specific theme by slug
+sudo ./install.sh -t 10            # set boot timeout to 10 seconds
+sudo ./install.sh -t 10 miku       # set timeout AND install theme
+sudo ./install.sh -l               # list all themes
+sudo ./install.sh -u               # restore original /etc/default/grub
+sudo ./install.sh -u --purge       # restore config AND delete theme files
+sudo ./install.sh -h               # help
 ```
 
-### Requirements
+---
 
-- A working GRUB2 install (`update-grub`, `grub-mkconfig`, or `grub2-mkconfig` on `$PATH`).
-- `bash` 4+, `sed`, `find`, `cp`, `install`, `df`, `du` (all default on every mainstream distro).
-- Root — the script writes to `/etc/default/grub` and `/boot/`.
+## Requirements
 
-### Tested on
+- GRUB2 installed (`update-grub`, `grub-mkconfig`, or `grub2-mkconfig` on `$PATH`)
+- `bash` 4+, `sed`, `find`, `cp`, `install`, `df`, `du`
+- Root — writes to `/etc/default/grub` and `/boot/`
+- Python 3 + Pillow (`pip install Pillow`) — only needed to regenerate `background_ui.png`
 
-Debian, Ubuntu, Arch, Manjaro, Fedora.
+---
 
-> If your distro patches GRUB heavily (some immutable/atomic distros like openSUSE MicroOS or Fedora Silverblue), the regenerate step may need extra flags — open an issue.
+## Tested on
+
+Debian, Ubuntu, Arch, Manjaro, Fedora, CachyOS.
 
 ---
 
 ## Troubleshooting
 
-**Theme looks pixelated or the screen goes blank**
-The installer sets `GRUB_GFXMODE=auto`, which works on most systems but can fall back to a low-resolution mode on some NVIDIA cards or older BIOSes. Fix it by editing `/etc/default/grub`:
-```
+**Theme looks pixelated or screen goes blank**
 GRUB_GFXMODE=1920x1080x32
-```
-Replace `1920x1080` with your actual screen resolution, then run `sudo update-grub`.
+Edit `/etc/default/grub`, replace with your resolution, then `sudo update-grub`.
 
-**Windows or other OS entries disappeared from the menu**
-Check that `GRUB_DISABLE_OS_PROBER=true` is not set (or is commented out) in `/etc/default/grub`. Many distros ship this disabled by default. Remove or comment the line, then run `sudo update-grub`. You may also need `os-prober` installed:
+**Windows or other OS entries disappeared**
+Make sure `GRUB_DISABLE_OS_PROBER=true` is not set in `/etc/default/grub`.
 ```bash
-# Debian/Ubuntu
-sudo apt install os-prober
-
-# Arch
-sudo pacman -S os-prober
-
-# Fedora
-sudo dnf install os-prober
+sudo pacman -S os-prober        # Arch/CachyOS
+sudo apt install os-prober      # Debian/Ubuntu
+sudo dnf install os-prober      # Fedora
 ```
 
 **Theme doesn't appear with Secure Boot enabled**
-Graphical GRUB themes require `gfxterm`, which can conflict with Secure Boot on some systems. See your distro's documentation on GRUB + Secure Boot configuration.
+Graphical GRUB themes require `gfxterm` which can conflict with Secure Boot. See your distro's docs.
 
-**"no themes found" error when running install.sh**
-Make sure you are running the script from the cloned repo root:
+**"no themes found" error**
+Run from the cloned repo root:
 ```bash
 cd gorgeous-grub
 sudo ./install.sh
 ```
-The installer looks for theme folders (`miku/`, `penguin/`, etc.) next to itself.
 
-**"/boot has insufficient space" error**
-The installer checks disk space before copying. If `/boot` is full, clean up old kernels first:
+**"/boot has insufficient space"**
 ```bash
-# Debian/Ubuntu
-sudo apt autoremove
-
-# Arch
-sudo pacman -Sc
-
-# Fedora
-sudo dnf autoremove
+sudo pacman -Sc      # Arch/CachyOS
+sudo apt autoremove  # Debian/Ubuntu
+sudo dnf autoremove  # Fedora
 ```
 
 ---
 
 ## Browse before you install
 
-The repo root is a self-contained static site (vanilla HTML/CSS/JS). It's served directly via GitHub Pages so you can see every theme before touching your bootloader.
+The repo root is a self-contained static site served via GitHub Pages.
 
-Run it locally:
-
+Run locally:
 ```bash
 python3 -m http.server 8000
 # open http://localhost:8000
@@ -172,36 +135,12 @@ python3 -m http.server 8000
 
 ```bash
 mkdir my-theme
-cp penguin/theme.txt my-theme/theme.txt
-# drop a background.png (1920×1080 looks best) into the folder
+# drop background.png (1920×1080) into the folder
+# write theme.txt — see GRUB Theme Reference:
+# https://www.gnu.org/software/grub/manual/grub/html_node/Theme-file-format.html
 ```
 
-Edit `theme.txt` — the [GRUB Theme Reference](https://www.gnu.org/software/grub/manual/grub/html_node/Theme-file-format.html) documents every property (`title-text`, `boot_menu`, `progress_bar`, fonts, colors).
-
-Then register it in the gallery by appending an entry to `themes.json`:
-
-```jsonc
-{
-  "slug": "my-theme",
-  "title": "My Theme",
-  "tagline": "What it feels like in one line.",
-  "background": "./my-theme/background.png",
-  "palette": ["#0a0d14", "#ff7a18", "#ffb86b", "#e6ecf3"],
-  "layout": "centered",       // centered | leftrail | rightcol | bottomdock | arcade | strip
-  "layoutLabel": "Centered panel",
-  "font": "Unifont",
-  "tags": ["minimal", "tux"],
-  "menu": {
-    "title": "boot",
-    "timeout": "5s",
-    "entries": ["Linux", "Advanced", "Memtest86+", "Firmware"],
-    "selected": 0
-  }
-}
-```
-
-Install it the same way as the bundled themes:
-
+Register in gallery by adding an entry to `themes.json`, then:
 ```bash
 sudo ./install.sh my-theme
 ```
@@ -211,78 +150,37 @@ sudo ./install.sh my-theme
 ## Undo
 
 ```bash
-# Restore /etc/default/grub from the automatic backup and regenerate GRUB config
-sudo ./install.sh -u
-
-# Same as above, and also delete theme files from /boot/grub/themes/
-sudo ./install.sh -u --purge
+sudo ./install.sh -u               # restore /etc/default/grub
+sudo ./install.sh -u --purge       # restore + delete theme files from /boot
 ```
 
 ---
 
 ## Repo layout
-
-```
 .
-├── install.sh        # interactive installer — run as root from this directory
+├── install.sh # interactive installer
 ├── README.md
 ├── LICENSE
-├── index.html        # GitHub Pages gallery site
+├── index.html # GitHub Pages gallery
 ├── styles.css
 ├── app.js
-├── themes.json       # gallery manifest — one entry per theme
-├── miku/             # theme folders — each contains theme.txt + background.*
+├── themes.json # gallery manifest
+├── fonts/ # source TTF + converted pf2 fonts
+├── miku/ # theme folders
 ├── penguin/
 ├── nes/
-├── nimbus/
 ├── street/
-├── gas_station/
+├── noir/
 ├── bmw/
+├── nimbus/
+├── gas_station/
 ├── celebrate/
-├── ben/
-└── noir/
-```
-## Flow chart 
-```mermaid
-flowchart LR
-    %% Styling Definitions
-    classDef root fill:#2c3e50,stroke:#34495e,stroke-width:2px,color:#fff;
-    classDef script fill:#f1c40f,stroke:#f39c12,stroke-width:2px,color:#000;
-    classDef web fill:#3498db,stroke:#2980b9,stroke-width:2px,color:#fff;
-    classDef theme fill:#8e44ad,stroke:#7d3c98,stroke-width:2px,color:#fff;
-    classDef meta fill:#ecf0f1,stroke:#bdc3c7,stroke-width:1px,color:#2c3e50;
+└── ben/
 
-    Root[sddm-themes-repo]:::root
-    
-    %% Repository Root Files
-    Root --> Install[install.sh]:::script
-    Root --> Readme[README.md]:::meta
-    Root --> License[LICENSE]:::meta
-    
-    %% Website components
-    Root --> Gallery[Gallery Website]:::web
-    Gallery --> Index[index.html]:::web
-    Gallery --> CSS[styles.css]:::web
-    Gallery --> JS[app.js]:::web
-    Gallery --> Manifest[themes.json]:::web
-
-    %% Theme Collections
-    Root --> Themes[Theme Folders]:::theme
-    
-    Themes --> Miku[miku/]:::theme
-    Themes --> Penguin[penguin/]:::theme
-    Themes --> Nes[nes/]:::theme
-    Themes --> More[...]
-    Themes --> Noir[noir/]:::theme
-    
-    %% Theme Anatomy (Example)
-    Miku --> Txt[theme.txt]:::meta
-    Miku --> BG[background.*]:::meta
-```
 ---
 
 ## License
 
-MIT for the code (`install.sh`, the static site). See [LICENSE](./LICENSE).  
-Background artwork belongs to its respective artists — see each theme folder for attribution.  
+MIT for the code (`install.sh`, static site). See [LICENSE](./LICENSE).
+Background artwork belongs to respective artists — see each theme folder for attribution.
 PRs welcome.
