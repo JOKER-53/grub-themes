@@ -2,27 +2,36 @@ title-text:    ""
 desktop-image: "background_ui.png"
 desktop-color: "#1a2438"
 
++ label {
+    top    = 4%
+    left   = 0
+    width  = 100%
+    align  = "center"
+    text   = "↑ ↓ to navigate  ·  Enter to boot"
+    color  = "#9fbce6"
+    font   = "Unifont Regular 14"
+}
+
 + boot_menu {
-    left                       = 58%
-    top                        = 21%
-    width                      = 36%
-    height                     = 57%
-    item_font                  = "Space Grotesk Regular 18"
-    item_color                 = "#cfe1ff"
-    selected_item_color        = "#ffffff"
-    item_height                = 96
-    item_padding               = 20
-    item_spacing               = 4
-    selected_item_pixmap_style = "box/sel_*.png"
-    scrollbar                  = false
+    left                = 7%
+    top                 = 63%
+    width               = 86%
+    height              = 21%
+    item_font           = "Space Grotesk Regular 18"
+    item_color          = "#1a2438"
+    selected_item_color = "#263654"
+    item_height         = 114
+    item_padding        = 20
+    item_spacing        = 0
+    scrollbar           = false
 }
 
 + progress_bar {
     id           = "__timeout__"
-    left         = 58%
-    bottom       = 5%
-    width        = 36%
-    height       = 4
+    left         = 30%
+    bottom       = 4%
+    width        = 40%
+    height       = 3
     fg_color     = "#cfe1ff"
     bg_color     = "#2a3548"
     border_color = "#9fbce6"
