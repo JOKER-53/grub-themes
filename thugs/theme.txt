@@ -3,6 +3,12 @@ desktop-image: "background.png"
 desktop-image-scale-method: "stretch"
 desktop-color: "#24112d"
 
++ image {
+ left = 0
+ top = 0
+ file = "overlay.png"
+}
+
 + label {
  top = 9%
  left = 5%

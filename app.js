@@ -55,9 +55,12 @@ function hydrateThemeConfig(theme) {
   if (!desktop) throw new Error(`${theme.slug}/theme.txt has no desktop-image`);
   theme.desktopImage = desktop[1];
   theme.desktopScaleMethod = theme.themeText.match(/^\s*desktop-image-scale-method:\s*"?([^"\s]+)"?/m)?.[1] || "stretch";
-  theme.bootMenu = parseComponent(theme.themeText, "boot_menu", true);
+  theme.bootMenus = parseComponents(theme.themeText, "boot_menu");
+  if (!theme.bootMenus.length) throw new Error(`${theme.slug}/theme.txt has no boot_menu component`);
+  theme.bootMenu = theme.bootMenus[0];
   theme.progressBar = parseComponent(theme.themeText, "progress_bar");
   theme.labels = parseComponents(theme.themeText, "label");
+  theme.images = parseComponents(theme.themeText, "image");
 }
 
 function grubCoordinate(value, total, fallback = 0) {
@@ -77,30 +80,38 @@ function styledBoxHtml(theme, pattern, x, y, width, height, edge = 8) {
 }
 
 function actualPreviewHtml(theme, lazy = false) {
-  const menu = theme.bootMenu;
-  const left = grubCoordinate(menu.left, 1920);
-  const top = grubCoordinate(menu.top, 1080);
-  const width = grubCoordinate(menu.width, 1920, 960);
-  const height = grubCoordinate(menu.height, 1080, 540);
-  const itemHeight = Number.parseFloat(menu.item_height) || 52;
-  const spacing = Number.parseFloat(menu.item_spacing) || 0;
-  const padding = Number.parseFloat(menu.item_padding) || 0;
-  const configuredFont = menu.item_font || "Unifont Regular 16";
-  const fontSize = Number.parseFloat(configuredFont.match(/(\d+)(?!.*\d)/)?.[1]) || 16;
-  const fontFamily = configuredFont.replace(/\s+(?:Regular|Bold|Italic)?\s*\d+$/i, "");
-  const normalColor = menu.item_color || "#ffffff";
-  const selectedColor = menu.selected_item_color === "inherit" ? normalColor : (menu.selected_item_color || normalColor);
   const selected = Math.max(0, Math.min(theme.menu.selected || 0, theme.menu.entries.length - 1));
   const clipId = `menu-${theme.slug.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const rows = theme.menu.entries.map((entry, index) => {
-    const y = top + index * (itemHeight + spacing);
-    if (y >= top + height) return "";
-    const selection = index === selected
-      ? styledBoxHtml(theme, menu.selected_item_pixmap_style || "box/sel_*.png", left, y, width, itemHeight)
-      : "";
-    return `${selection}<text x="${left + padding}" y="${y + itemHeight * 0.67}" fill="${escapeHtml(index === selected ? selectedColor : normalColor)}" font-family="${escapeHtml(fontFamily)}, monospace" font-size="${fontSize}">${escapeHtml(entry)}</text>`;
+  const menuLayers = (theme.bootMenus || [theme.bootMenu]).map((menu, layerIndex) => {
+    const left = grubCoordinate(menu.left, 1920);
+    const top = grubCoordinate(menu.top, 1080);
+    const width = grubCoordinate(menu.width, 1920, 960);
+    const height = grubCoordinate(menu.height, 1080, 540);
+    const itemHeight = Number.parseFloat(menu.item_height) || 52;
+    const spacing = Number.parseFloat(menu.item_spacing) || 0;
+    const padding = Number.parseFloat(menu.item_padding) || 0;
+    const configuredFont = menu.item_font || "Unifont Regular 16";
+    const fontSize = Number.parseFloat(configuredFont.match(/(\d+)(?!.*\d)/)?.[1]) || 16;
+    const fontFamily = configuredFont.replace(/\s+(?:Regular|Bold|Italic)?\s*\d+$/i, "");
+    const normalColor = menu.item_color || "#ffffff";
+    const selectedColor = menu.selected_item_color === "inherit" ? normalColor : (menu.selected_item_color || normalColor);
+    const rows = theme.menu.entries.map((entry, index) => {
+      const y = top + index * (itemHeight + spacing);
+      if (y >= top + height) return "";
+      const rowStyle = index === selected ? menu.selected_item_pixmap_style : menu.item_pixmap_style;
+      const rowBox = styledBoxHtml(theme, rowStyle, left, y, width, itemHeight);
+      return `${rowBox}<text x="${left + padding}" y="${y + itemHeight * 0.67}" fill="${escapeHtml(index === selected ? selectedColor : normalColor)}" font-family="${escapeHtml(fontFamily)}, monospace" font-size="${fontSize}">${escapeHtml(entry)}</text>`;
+    }).join("");
+    const frame = styledBoxHtml(theme, menu.menu_pixmap_style, left, top, width, height);
+    return `${frame}<g clip-path="url(#${clipId}-${layerIndex})">${rows}</g><clipPath id="${clipId}-${layerIndex}"><rect x="${left}" y="${top}" width="${width}" height="${height}"/></clipPath>`;
   }).join("");
-  const menuFrame = styledBoxHtml(theme, menu.menu_pixmap_style, left, top, width, height);
+  const imageLayers = (theme.images || []).map((component) => {
+    if (!component.file) return "";
+    const x = grubCoordinate(component.left, 1920);
+    const y = grubCoordinate(component.top, 1080);
+    const path = component.file.split("/").map(encodeURIComponent).join("/");
+    return `<image href="./${encodeURIComponent(theme.slug)}/${path}" x="${x}" y="${y}"/>`;
+  }).join("");
   const labels = (theme.labels || []).map((label) => {
     const labelLeft = grubCoordinate(label.left, 1920);
     const labelTop = grubCoordinate(label.top, 1080);
@@ -125,8 +136,7 @@ function actualPreviewHtml(theme, lazy = false) {
   return `<div class="actual-screen">
     <img class="actual-preview scale-${escapeHtml(theme.desktopScaleMethod)}" src="./${encodeURIComponent(theme.slug)}/${desktopImage}" alt="${escapeHtml(theme.title)} GRUB boot screen preview"${lazy ? ' loading="lazy"' : ""}>
     <svg class="actual-menu" viewBox="0 0 1920 1080" aria-hidden="true">
-      <defs><clipPath id="${clipId}"><rect x="${left}" y="${top}" width="${width}" height="${height}"/></clipPath></defs>
-      ${menuFrame}<g clip-path="url(#${clipId})">${rows}</g>${labels}${progress}
+      ${imageLayers}${menuLayers}${labels}${progress}
     </svg>
   </div>`;
 }

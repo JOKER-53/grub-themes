@@ -10,6 +10,8 @@ jq -e 'type == "array" and length > 0' themes.json >/dev/null
 grep -q 'theme.desktopImage' app.js || { printf 'website preview is not bound to theme.txt desktop-image\n' >&2; exit 1; }
 grep -q 'menu.selected_item_pixmap_style' app.js || { printf 'website preview is not bound to the GRUB selection asset\n' >&2; exit 1; }
 grep -q 'parseComponents(theme.themeText, "label")' app.js || { printf 'website preview is not bound to GRUB labels\n' >&2; exit 1; }
+grep -q 'parseComponents(theme.themeText, "boot_menu")' app.js || { printf 'website preview does not support layered GRUB menus\n' >&2; exit 1; }
+grep -q 'parseComponents(theme.themeText, "image")' app.js || { printf 'website preview is not bound to GRUB image components\n' >&2; exit 1; }
 grep -q 'styledBoxHtml(theme, menu.menu_pixmap_style' app.js || { printf 'website preview is not bound to the GRUB menu frame\n' >&2; exit 1; }
 
 errors=0
@@ -42,6 +44,13 @@ while IFS= read -r theme_file; do
       fi
     done
   done < <(sed -nE 's/^[[:space:]]*(menu_pixmap_style|item_pixmap_style|selected_item_pixmap_style)[[:space:]]*=[[:space:]]*"([^"]+)".*/\2/p' "$theme_file")
+
+  while IFS= read -r image_file; do
+    if [[ ! -f "$theme_dir/$image_file" ]]; then
+      printf 'missing GRUB image component: %s -> %s\n' "$theme_file" "$image_file" >&2
+      errors=1
+    fi
+  done < <(sed -nE 's/^[[:space:]]*file[[:space:]]*=[[:space:]]*"([^"]+)".*/\1/p' "$theme_file")
 
   while IFS= read -r font_name; do
     if ! find "$theme_dir/fonts" -type f -name '*.pf2' -exec strings {} \; 2>/dev/null | grep -Fxq "$font_name"; then

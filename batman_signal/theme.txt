@@ -3,6 +3,12 @@ desktop-image: "background.jpg"
 desktop-image-scale-method: "crop"
 desktop-color: "#000000"
 
++ image {
+ left = 0
+ top = 0
+ file = "overlay.png"
+}
+
 + label {
  top = 20%
  left = 8%
