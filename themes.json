@@ -101,8 +101,8 @@
   {
     "slug": "nimbus",
     "title": "Nimbus",
-    "tagline": "macOS-style horizontal dock under a soft sky.",
-    "background": "./nimbus/background.gif",
+    "tagline": "Soft sky with a GRUB-compatible vertical selector.",
+    "background": "./nimbus/background.png",
     "palette": [
       "#1a2438",
       "#cfe1ff",
@@ -110,13 +110,12 @@
       "#9fbce6"
     ],
     "layout": "nimbus",
-    "layoutLabel": "Bottom dock",
+    "layoutLabel": "Vertical selector",
     "font": "Space Grotesk",
     "tags": [
       "ambient",
       "cozy",
-      "minimal",
-      "animated"
+      "minimal"
     ],
     "menu": {
       "title": "boot \u00b7 nimbus",
@@ -135,7 +134,7 @@
     "slug": "street",
     "title": "Street",
     "tagline": "Cyberpunk right-rail terminal with magenta glitch.",
-    "background": "./street/background.gif",
+    "background": "./street/background_ui.png",
     "palette": [
       "#0b0218",
       "#ff3df0",
@@ -167,7 +166,7 @@
     "slug": "gas_station",
     "title": "Gas Station",
     "tagline": "Retro pump display \u2014 pick your fuel and roll.",
-    "background": "./gas_station/background.gif",
+    "background": "./gas_station/background_ui.png",
     "palette": [
       "#2a1408",
       "#ffb86b",
@@ -180,7 +179,6 @@
     "tags": [
       "ambient",
       "lofi",
-      "animated",
       "cozy"
     ],
     "menu": {
@@ -232,7 +230,7 @@
   {
     "slug": "celebrate",
     "title": "Celebrate",
-    "tagline": "Hand-drawn line catalog \u2014 every OS a different hat.",
+    "tagline": "Hand-drawn catalog framing a vertical GRUB selector.",
     "background": "./celebrate/background.jpg",
     "palette": [
       "#d6d3cb",
@@ -241,7 +239,7 @@
       "#ffffff"
     ],
     "layout": "celebrate",
-    "layoutLabel": "Line catalog",
+    "layoutLabel": "Vertical catalog",
     "font": "Cinzel",
     "tags": [
       "minimal",
@@ -266,7 +264,7 @@
   {
     "slug": "ben",
     "title": "Omnitrix",
-    "tagline": "Ben 10 dial selector \u2014 green plasma core, hexagonal lock.",
+    "tagline": "Omnitrix artwork framing a vertical GRUB selector.",
     "background": "./ben/background.jpg",
     "palette": [
       "#0a3a55",
@@ -275,7 +273,7 @@
       "#caffaa"
     ],
     "layout": "ben",
-    "layoutLabel": "Omnitrix dial",
+    "layoutLabel": "Vertical selector",
     "font": "VT323",
     "tags": [
       "cartoon",

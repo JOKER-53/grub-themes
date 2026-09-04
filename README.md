@@ -29,7 +29,7 @@ Each theme ships its own `background_ui.png` (pre-rendered with real fonts via P
 | 04 | `street`      | Cyberpunk right-rail terminal, magenta neon glitch          | ✅ |
 | 05 | `noir`        | Spider-Noir comic panel, halftone rain, hard-boiled menu    | ✅ |
 | 06 | `bmw`         | Cinematic automotive HUD, telemetry bars and throttle       | ✅ |
-| 07 | `nimbus`      | macOS-style bottom dock under a soft animated sky           | 🔧 |
+| 07 | `nimbus`      | Soft-sky concept (static, vertical GRUB menu adaptation)    | 🔧 |
 | 08 | `gas_station` | Retro pump display, warm lo-fi sunset strip                 | 🔧 |
 | 09 | `celebrate`   | Hand-drawn line catalog, every OS a different hat           | 🔧 |
 | 10 | `ben`         | Ben 10 Omnitrix dial selector, green plasma core            | 🔧 |
@@ -49,7 +49,7 @@ Each theme ships its own `background_ui.png` (pre-rendered with real fonts via P
 5. Upserts these keys in `/etc/default/grub`:
    - `GRUB_THEME=/boot/grub/themes/<slug>/theme.txt`
    - `GRUB_TIMEOUT=15`
-   - `GRUB_GFXMODE=1920x1080x32`
+   - `GRUB_GFXMODE=auto`
    - `GRUB_GFXPAYLOAD_LINUX=keep`
    - `GRUB_TERMINAL_OUTPUT=gfxterm`
 6. Regenerates GRUB config with `update-grub` or `grub[2]-mkconfig`.
@@ -77,6 +77,14 @@ sudo ./install.sh -h               # help
 - `bash` 4+, `sed`, `find`, `cp`, `install`, `df`, `du`
 - Root — writes to `/etc/default/grub` and `/boot/`
 - Python 3 + Pillow (`pip install Pillow`) — only needed to regenerate `background_ui.png`
+
+## Animation and preview accuracy
+
+The gallery displays each theme's actual static boot asset. Standard GRUB themes
+do not play GIF or video backgrounds; the documented background formats are PNG,
+TGA, JPG, and JPEG. GIF files in this repository are source/gallery artwork only.
+GRUB boot menus are vertical lists, so horizontal docks and circular selectors
+can only be visual concepts around a functional vertical menu.
 
 ---
 

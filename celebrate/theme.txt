@@ -3,9 +3,9 @@ desktop-image: "background_ui.png"
 desktop-color: "#d6d3cb"
 
 + boot_menu {
-    left                       = 10%
-    top                        = 10%
-    width                      = 80%
+    left                       = 35%
+    top                        = 12%
+    width                      = 30%
     height                     = 46%
     item_font                  = "Cinzel Regular 24"
     item_color                 = "#1a1a1a"
@@ -18,9 +18,9 @@ desktop-color: "#d6d3cb"
 }
 + progress_bar {
     id           = "__timeout__"
-    left         = 25%
+    left         = 35%
     bottom       = 3%
-    width        = 50%
+    width        = 30%
     height       = 3
     fg_color     = "#1a1a1a"
     bg_color     = "#c0bdb5"

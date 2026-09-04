@@ -56,12 +56,26 @@ require_root() {
 # If the script aborts mid-copy, remove the partially-written theme dir so
 # /boot is never left in a broken state.
 
-_INSTALL_DST=""   # set just before the copy; cleared on success
+_INSTALL_DST=""
+_INSTALL_NEW=""
+_INSTALL_OLD=""
+_INSTALL_SWAPPED=0
+_GRUB_CONFIG_SNAPSHOT=""
 _cleanup() {
   local ec=$?
   if [[ $ec -ne 0 && -n "$_INSTALL_DST" ]]; then
-    warn "install failed — removing partial files from $_INSTALL_DST"
-    rm -rf "$_INSTALL_DST"
+    warn "install failed — rolling back theme files"
+    [[ -n "$_INSTALL_NEW" && -e "$_INSTALL_NEW" ]] && rm -rf -- "$_INSTALL_NEW"
+    if (( _INSTALL_SWAPPED == 1 )); then
+      [[ -e "$_INSTALL_DST" ]] && rm -rf -- "$_INSTALL_DST"
+      if [[ -n "$_INSTALL_OLD" && -e "$_INSTALL_OLD" ]]; then
+        mv -- "$_INSTALL_OLD" "$_INSTALL_DST"
+      fi
+    fi
+    if [[ -n "$_GRUB_CONFIG_SNAPSHOT" && -f "$_GRUB_CONFIG_SNAPSHOT" ]]; then
+      cp -a -- "$_GRUB_CONFIG_SNAPSHOT" "$GRUB_DEFAULTS"
+      rm -f -- "$_GRUB_CONFIG_SNAPSHOT"
+    fi
   fi
 }
 trap _cleanup EXIT
@@ -124,6 +138,9 @@ preflight_checks() {
   [[ -f "$src_dir/theme.txt" ]] || die "missing theme.txt in $src_dir"
   [[ -s "$src_dir/theme.txt" ]] || die "theme.txt is empty in $src_dir — corrupt theme?"
 
+  # Detect this before changing files rather than failing at the final step.
+  detect_update_cmd
+
   # 3. Disk space — compare theme folder size vs free space on /boot
   local required_kb available_kb
   required_kb=$(du -sk "$src_dir" | cut -f1)
@@ -156,6 +173,7 @@ install_theme() {
   local theme="$1"
   local src_dir="$THEMES_SRC/$theme"
 
+  [[ "$theme" =~ ^[a-zA-Z0-9][a-zA-Z0-9_-]*$ ]] || die "invalid theme name: '$theme'"
   [[ -d "$src_dir" ]] || die "unknown theme: '$theme'  (try: sudo $0 -l)"
 
   require_root
@@ -171,18 +189,31 @@ install_theme() {
     warn "Use 'sudo $0 -u' to restore your original config at any time."
   fi
 
-  # Arm the cleanup trap before we start writing
+  # Stage alongside the destination and retain the old copy until grub-mkconfig
+  # succeeds, so an interrupted reinstall can be rolled back.
   local dst="$THEMES_DST/$theme"
+  local new_dst="$THEMES_DST/.gorgeous-${theme}.new.$$"
+  local old_dst="$THEMES_DST/.gorgeous-${theme}.old.$$"
   _INSTALL_DST="$dst"
+  _INSTALL_NEW="$new_dst"
+  _INSTALL_OLD=""
+  _INSTALL_SWAPPED=0
 
-  install -d -m 0755 "$dst"
-  cp -af "$src_dir/." "$dst/"
+  install -d -m 0755 "$new_dst"
+  cp -af "$src_dir/." "$new_dst/"
+  [[ -s "$new_dst/theme.txt" ]] || die "copied theme failed validation"
+  if [[ -e "$dst" ]]; then
+    mv -- "$dst" "$old_dst"
+    _INSTALL_OLD="$old_dst"
+  fi
+  mv -- "$new_dst" "$dst"
+  _INSTALL_NEW=""
+  _INSTALL_SWAPPED=1
   ok "installed theme assets → $dst"
 
-  # Disarm trap — copy succeeded
-  _INSTALL_DST=""
-
   # Update /etc/default/grub
+  _GRUB_CONFIG_SNAPSHOT="$GRUB_DEFAULTS.gorgeous.transaction.$$"
+  cp -a -- "$GRUB_DEFAULTS" "$_GRUB_CONFIG_SNAPSHOT"
   set_grub_var GRUB_THEME            "$dst/theme.txt" "$GRUB_DEFAULTS"
   set_grub_var GRUB_TIMEOUT          "${BOOT_TIMEOUT:-15}"    "$GRUB_DEFAULTS"
   set_grub_var GRUB_GFXMODE         "auto"            "$GRUB_DEFAULTS"
@@ -196,6 +227,12 @@ install_theme() {
   warn "then run: sudo update-grub"
 
   run_update_grub
+  [[ -n "$_INSTALL_OLD" && -e "$_INSTALL_OLD" ]] && rm -rf -- "$_INSTALL_OLD"
+  rm -f -- "$_GRUB_CONFIG_SNAPSHOT"
+  _INSTALL_DST=""
+  _INSTALL_OLD=""
+  _INSTALL_SWAPPED=0
+  _GRUB_CONFIG_SNAPSHOT=""
   ok "theme '$theme' is active — reboot to see it!"
 }
 
@@ -210,12 +247,15 @@ uninstall() {
   ok "restored $GRUB_DEFAULTS from backup"
 
   if [[ "$purge" == "--purge" ]]; then
-    if [[ -d "$THEMES_DST" ]]; then
-      rm -rf "$THEMES_DST"
-      ok "removed $THEMES_DST (purge)"
-    else
-      info "$THEMES_DST not found — nothing to purge"
-    fi
+    local theme removed=0
+    while IFS= read -r theme; do
+      if [[ -d "$THEMES_DST/$theme" ]]; then
+        rm -rf -- "$THEMES_DST/$theme"
+        ok "removed $THEMES_DST/$theme"
+        removed=1
+      fi
+    done < <(list_themes)
+    (( removed == 1 )) || info "no Gorgeous GRUB theme files found — nothing to purge"
   else
     info "theme assets remain in $THEMES_DST — run with '--purge' to delete them too"
     info "  sudo $0 -u --purge"
