@@ -19,7 +19,7 @@ Pick a theme from the dropdown, reboot, enjoy.
 
 ## What you get
 
-Each theme ships its own `background_ui.png` (pre-rendered with real fonts via Python/PIL) and a hand-written `theme.txt`:
+Each theme ships its original background image, bundled GRUB font, selection assets, and a hand-written `theme.txt`:
 
 | #  | Slug          | Vibe                                                        | Status |
 | -- | ------------- | ----------------------------------------------------------- | ------ |
@@ -33,6 +33,16 @@ Each theme ships its own `background_ui.png` (pre-rendered with real fonts via P
 | 08 | `gas_station` | Retro pump display, warm lo-fi sunset strip                 | 🔧 |
 | 09 | `celebrate`   | Hand-drawn line catalog, every OS a different hat           | 🔧 |
 | 10 | `ben`         | Ben 10 Omnitrix dial selector, green plasma core            | 🔧 |
+| 11 | `motorcycle`  | Custom motorcycle with a road-ready selector                | ✅ |
+| 12 | `spider`      | Cinematic Spider-Man with a right-side selector             | ✅ |
+| 13 | `comic_spider`| Comic Spider-Man with a clean left-side selector            | ✅ |
+| 14 | `bmw_gtr`     | BMW motorsport garage with a blue technical selector        | ✅ |
+| 15 | `money`       | Ink-drawn currency roll on a deep black field               | ✅ |
+| 16 | `yorha`       | Monochrome android battlefield system menu                  | ✅ |
+| 17 | `batman_signal` | Amber Gotham signal with a stark selector                 | ✅ |
+| 18 | `whisky`      | Warm single-malt still life with a quiet selector           | ✅ |
+| 19 | `batman_city` | Monochrome Gotham skyline and guardian                      | ✅ |
+| 20 | `thugs`       | Illustrated skeleton with a muted purple selector           | ✅ |
 
 ✅ = fully working | 🔧 = in progress
 
@@ -80,7 +90,7 @@ sudo ./install.sh -h               # help
 
 ## Animation and preview accuracy
 
-The gallery displays each theme's actual static boot asset. Standard GRUB themes
+The gallery displays the static boot asset configured by each `theme.txt`. Standard GRUB themes
 do not play GIF or video backgrounds; the documented background formats are PNG,
 TGA, JPG, and JPEG. GIF files in this repository are source/gallery artwork only.
 GRUB boot menus are vertical lists, so horizontal docks and circular selectors

@@ -1,0 +1,60 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "crop"
+desktop-color: "#000000"
+
++ label {
+ top = 8%
+ left = 69%
+ width = 26%
+ text = "M3 GTR / CONTROL"
+ align = "left"
+ color = "#d8e8ff"
+ font = "Orbitron Regular 20"
+}
++ label {
+ top = 13%
+ left = 69%
+ width = 26%
+ text = "ENGINE      ONLINE"
+ align = "left"
+ color = "#3b9cff"
+ font = "Orbitron Regular 20"
+}
++ boot_menu {
+ left = 69%
+ top = 22%
+ width = 26%
+ height = 45%
+ item_font = "Orbitron Regular 20"
+ item_color = "#96a9c6"
+ selected_item_color = "#ffffff"
+ item_height = 50
+ item_padding = 20
+ item_spacing = 14
+ menu_pixmap_style = "box/frame_*.png"
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ label {
+ top = 72%
+ left = 69%
+ width = 26%
+ text = "ABS  ON     DSC  ON     SPORT+"
+ align = "left"
+ color = "#3b9cff"
+ font = "Orbitron Regular 20"
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 69%
+ top = 79%
+ width = 26%
+ height = 5
+ fg_color = "#3b9cff"
+ bg_color = "#08101f"
+ border_color = "#d8e8ff"
+ text_color = "#d8e8ff"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Orbitron Regular 20"
+}

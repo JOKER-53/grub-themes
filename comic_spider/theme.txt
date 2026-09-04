@@ -1,0 +1,59 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "crop"
+desktop-color: "#000000"
+
++ label {
+ top = 12%
+ left = 6%
+ width = 42%
+ text = "ISSUE 001"
+ align = "left"
+ color = "#e02a34"
+ font = "Archivo Black Regular 24"
+}
++ label {
+ top = 19%
+ left = 6%
+ width = 42%
+ text = "THE AMAZING BOOT MENU"
+ align = "left"
+ color = "#ffffff"
+ font = "Archivo Black Regular 24"
+}
++ boot_menu {
+ left = 6%
+ top = 34%
+ width = 41%
+ height = 29%
+ item_font = "Archivo Black Regular 24"
+ item_color = "#8d8d8d"
+ selected_item_color = "#ffffff"
+ item_height = 48
+ item_padding = 20
+ item_spacing = 3
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ label {
+ top = 68%
+ left = 6%
+ width = 41%
+ text = "CONTINUE THE STORY  >"
+ align = "right"
+ color = "#e02a34"
+ font = "Archivo Black Regular 24"
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 6%
+ top = 75%
+ width = 41%
+ height = 10
+ fg_color = "#e02a34"
+ bg_color = "#ffffff"
+ border_color = "#ffffff"
+ text_color = "#ffffff"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Archivo Black Regular 24"
+}

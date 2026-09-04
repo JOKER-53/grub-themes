@@ -337,5 +337,335 @@ window.GRUB_THEME_CATALOG = [
     },
     "status": "working",
     "themeText": "title-text:    \"\"\ndesktop-image: \"background_ui.png\"\ndesktop-color: \"#000000\"\n\n+ boot_menu {\n    left                       = 9%\n    top                        = 14%\n    width                      = 55%\n    height                     = 68%\n    item_font                  = \"Archivo Black Regular 24\"\n    item_color                 = \"#c8c8c8\"\n    selected_item_color        = \"#000000\"\n    item_height                = 120\n    item_padding               = 20\n    item_spacing               = 0\n    selected_item_pixmap_style = \"box/sel_*.png\"\n    scrollbar                  = false\n}\n\n+ progress_bar {\n    id           = \"__timeout__\"\n    left         = 9%\n    bottom       = 4%\n    width        = 55%\n    height       = 3\n    fg_color     = \"#ffffff\"\n    bg_color     = \"#1a1a1a\"\n    border_color = \"#8a8a8a\"\n    text_color   = \"#8a8a8a\"\n    text         = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n    font         = \"Archivo Black Regular 24\"\n}\n"
+  },
+  {
+    "slug": "motorcycle",
+    "title": "Road King",
+    "tagline": "Custom motorcycle with a restrained road-ready selector.",
+    "background": "./motorcycle/background.jpg",
+    "palette": [
+      "#101018",
+      "#a01222",
+      "#ffffff",
+      "#8c8c86"
+    ],
+    "layout": "miku",
+    "layoutLabel": "Framed ignition console",
+    "font": "Orbitron",
+    "tags": [
+      "motorcycle",
+      "automotive",
+      "photography"
+    ],
+    "menu": {
+      "title": "ROAD // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"crop\"\ndesktop-color: \"#000000\"\n\n+ label {\n top = 8%\n left = 4%\n width = 28%\n text = \"ROAD KING\"\n align = \"left\"\n color = \"#a01222\"\n font = \"Orbitron Regular 20\"\n}\n+ label {\n top = 13%\n left = 4%\n width = 28%\n text = \"IGNITION / READY\"\n align = \"left\"\n color = \"#101018\"\n font = \"Orbitron Regular 20\"\n}\n+ boot_menu {\n left = 4%\n top = 21%\n width = 28%\n height = 39%\n item_font = \"Orbitron Regular 20\"\n item_color = \"#101018\"\n selected_item_color = \"#ffffff\"\n item_height = 58\n item_padding = 18\n item_spacing = 7\n menu_pixmap_style = \"box/frame_*.png\"\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ label {\n top = 64%\n left = 4%\n width = 28%\n text = \"UP/DOWN  SELECT     ENTER  RIDE\"\n align = \"left\"\n color = \"#101018\"\n font = \"Orbitron Regular 20\"\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 4%\n top = 70%\n width = 28%\n height = 6\n fg_color = \"#a01222\"\n bg_color = \"#d8d1c4\"\n border_color = \"#101018\"\n text_color = \"#101018\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Orbitron Regular 20\"\n}\n"
+  },
+  {
+    "slug": "spider",
+    "title": "Spider",
+    "tagline": "Cinematic red-and-blue hero with a right-side boot menu.",
+    "background": "./spider/background.jpg",
+    "palette": [
+      "#000000",
+      "#d82232",
+      "#244d88",
+      "#ffffff"
+    ],
+    "layout": "noir",
+    "layoutLabel": "Right hero rail",
+    "font": "Archivo Black",
+    "tags": [
+      "superhero",
+      "cinematic",
+      "dark"
+    ],
+    "menu": {
+      "title": "SPIDER // BOOT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"stretch\"\ndesktop-color: \"#000000\"\n\n+ label {\n top = 13%\n left = 70%\n width = 24%\n text = \"SPIDER\"\n align = \"right\"\n color = \"#d82232\"\n font = \"Archivo Black Regular 24\"\n}\n+ label {\n top = 19%\n left = 70%\n width = 24%\n text = \"CHOOSE YOUR PATH\"\n align = \"right\"\n color = \"#dce8ff\"\n font = \"Archivo Black Regular 24\"\n}\n+ boot_menu {\n left = 67%\n top = 31%\n width = 27%\n height = 43%\n item_font = \"Archivo Black Regular 24\"\n item_color = \"#7189b2\"\n selected_item_color = \"#ffffff\"\n item_height = 68\n item_padding = 16\n item_spacing = 11\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 78%\n bottom = 13%\n width = 16%\n height = 3\n fg_color = \"#d82232\"\n bg_color = \"#244d88\"\n border_color = \"#d82232\"\n text_color = \"#dce8ff\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Archivo Black Regular 24\"\n}\n"
+  },
+  {
+    "slug": "comic_spider",
+    "title": "Comic Spider",
+    "tagline": "Bold comic portrait framing a clean left-side selector.",
+    "background": "./comic_spider/background.jpg",
+    "palette": [
+      "#000000",
+      "#e02a34",
+      "#ffffff",
+      "#777777"
+    ],
+    "layout": "noir",
+    "layoutLabel": "Comic issue stack",
+    "font": "Archivo Black",
+    "tags": [
+      "superhero",
+      "comic",
+      "minimal"
+    ],
+    "menu": {
+      "title": "WEB // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"crop\"\ndesktop-color: \"#000000\"\n\n+ label {\n top = 12%\n left = 6%\n width = 42%\n text = \"ISSUE 001\"\n align = \"left\"\n color = \"#e02a34\"\n font = \"Archivo Black Regular 24\"\n}\n+ label {\n top = 19%\n left = 6%\n width = 42%\n text = \"THE AMAZING BOOT MENU\"\n align = \"left\"\n color = \"#ffffff\"\n font = \"Archivo Black Regular 24\"\n}\n+ boot_menu {\n left = 6%\n top = 34%\n width = 41%\n height = 29%\n item_font = \"Archivo Black Regular 24\"\n item_color = \"#8d8d8d\"\n selected_item_color = \"#ffffff\"\n item_height = 48\n item_padding = 20\n item_spacing = 3\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ label {\n top = 68%\n left = 6%\n width = 41%\n text = \"CONTINUE THE STORY  >\"\n align = \"right\"\n color = \"#e02a34\"\n font = \"Archivo Black Regular 24\"\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 6%\n top = 75%\n width = 41%\n height = 10\n fg_color = \"#e02a34\"\n bg_color = \"#ffffff\"\n border_color = \"#ffffff\"\n text_color = \"#ffffff\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Archivo Black Regular 24\"\n}\n"
+  },
+  {
+    "slug": "bmw_gtr",
+    "title": "BMW GTR",
+    "tagline": "Motorsport garage photography with a precise blue selector.",
+    "background": "./bmw_gtr/background.jpg",
+    "palette": [
+      "#08101f",
+      "#3b9cff",
+      "#d8e8ff",
+      "#ffffff"
+    ],
+    "layout": "bmw",
+    "layoutLabel": "Right telemetry console",
+    "font": "Orbitron",
+    "tags": [
+      "automotive",
+      "motorsport",
+      "photography"
+    ],
+    "menu": {
+      "title": "M POWER // BOOT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"crop\"\ndesktop-color: \"#000000\"\n\n+ label {\n top = 8%\n left = 69%\n width = 26%\n text = \"M3 GTR / CONTROL\"\n align = \"left\"\n color = \"#d8e8ff\"\n font = \"Orbitron Regular 20\"\n}\n+ label {\n top = 13%\n left = 69%\n width = 26%\n text = \"ENGINE      ONLINE\"\n align = \"left\"\n color = \"#3b9cff\"\n font = \"Orbitron Regular 20\"\n}\n+ boot_menu {\n left = 69%\n top = 22%\n width = 26%\n height = 45%\n item_font = \"Orbitron Regular 20\"\n item_color = \"#96a9c6\"\n selected_item_color = \"#ffffff\"\n item_height = 50\n item_padding = 20\n item_spacing = 14\n menu_pixmap_style = \"box/frame_*.png\"\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ label {\n top = 72%\n left = 69%\n width = 26%\n text = \"ABS  ON     DSC  ON     SPORT+\"\n align = \"left\"\n color = \"#3b9cff\"\n font = \"Orbitron Regular 20\"\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 69%\n top = 79%\n width = 26%\n height = 5\n fg_color = \"#3b9cff\"\n bg_color = \"#08101f\"\n border_color = \"#d8e8ff\"\n text_color = \"#d8e8ff\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Orbitron Regular 20\"\n}\n"
+  },
+  {
+    "slug": "money",
+    "title": "Fortune",
+    "tagline": "Ink-drawn currency roll against a deep black field.",
+    "background": "./money/background.jpg",
+    "palette": [
+      "#000000",
+      "#d8be74",
+      "#f2ead3",
+      "#ffffff"
+    ],
+    "layout": "celebrate",
+    "layoutLabel": "Centered fortune column",
+    "font": "Cinzel",
+    "tags": [
+      "editorial",
+      "minimal",
+      "dark"
+    ],
+    "menu": {
+      "title": "FORTUNE // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"crop\"\ndesktop-color: \"#000000\"\n\n+ label {\n top = 28%\n left = 6%\n width = 35%\n text = \"FORTUNE\"\n align = \"center\"\n color = \"#d8be74\"\n font = \"Cinzel Regular 20\"\n}\n+ label {\n top = 34%\n left = 6%\n width = 35%\n text = \"A SYSTEM IS A CHOICE\"\n align = \"center\"\n color = \"#f2ead3\"\n font = \"Cinzel Regular 20\"\n}\n+ boot_menu {\n left = 6%\n top = 45%\n width = 35%\n height = 27%\n item_font = \"Cinzel Regular 20\"\n item_color = \"#8c846e\"\n selected_item_color = \"#111111\"\n item_height = 46\n item_padding = 22\n item_spacing = 1\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 15%\n top = 78%\n width = 17%\n height = 3\n fg_color = \"#d8be74\"\n bg_color = \"#28251e\"\n border_color = \"#d8be74\"\n text_color = \"#d8be74\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Cinzel Regular 20\"\n}\n"
+  },
+  {
+    "slug": "yorha",
+    "title": "YoRHa",
+    "tagline": "Monochrome android battlefield with a minimal system list.",
+    "background": "./yorha/background.jpg",
+    "palette": [
+      "#eeeeee",
+      "#202025",
+      "#77777c",
+      "#ffffff"
+    ],
+    "layout": "nimbus",
+    "layoutLabel": "Right system readout",
+    "font": "Space Grotesk",
+    "tags": [
+      "anime",
+      "monochrome",
+      "gaming"
+    ],
+    "menu": {
+      "title": "YoRHa // SYSTEM",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"stretch\"\ndesktop-color: \"#eeeeee\"\n\n+ label {\n top = 10%\n left = 72%\n width = 22%\n text = \"YoRHa\"\n align = \"right\"\n color = \"#202025\"\n font = \"Space Grotesk Regular 20\"\n}\n+ label {\n top = 15%\n left = 72%\n width = 22%\n text = \"BOOT SEQUENCE 2B\"\n align = \"right\"\n color = \"#77777c\"\n font = \"Space Grotesk Regular 20\"\n}\n+ boot_menu {\n left = 71%\n top = 29%\n width = 23%\n height = 39%\n item_font = \"Space Grotesk Regular 20\"\n item_color = \"#77777c\"\n selected_item_color = \"#ffffff\"\n item_height = 42\n item_padding = 16\n item_spacing = 18\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ label {\n top = 73%\n left = 72%\n width = 22%\n text = \"SYSTEM CHECK / COMPLETE\"\n align = \"right\"\n color = \"#202025\"\n font = \"Space Grotesk Regular 20\"\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 72%\n top = 80%\n width = 22%\n height = 2\n fg_color = \"#202025\"\n bg_color = \"#b7b7b9\"\n border_color = \"#202025\"\n text_color = \"#202025\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Space Grotesk Regular 20\"\n}\n"
+  },
+  {
+    "slug": "batman_signal",
+    "title": "Gotham Signal",
+    "tagline": "Amber city signal with a stark left-side menu.",
+    "background": "./batman_signal/background.jpg",
+    "palette": [
+      "#000000",
+      "#e8940c",
+      "#eeeeee",
+      "#ffffff"
+    ],
+    "layout": "noir",
+    "layoutLabel": "Signal response console",
+    "font": "Archivo Black",
+    "tags": [
+      "superhero",
+      "minimal",
+      "orange"
+    ],
+    "menu": {
+      "title": "GOTHAM // BOOT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"crop\"\ndesktop-color: \"#000000\"\n\n+ label {\n top = 20%\n left = 8%\n width = 31%\n text = \"GOTHAM\"\n align = \"left\"\n color = \"#e8940c\"\n font = \"Archivo Black Regular 24\"\n}\n+ label {\n top = 27%\n left = 8%\n width = 31%\n text = \"THE SIGNAL IS ACTIVE\"\n align = \"left\"\n color = \"#eeeeee\"\n font = \"Archivo Black Regular 24\"\n}\n+ boot_menu {\n left = 8%\n top = 40%\n width = 31%\n height = 31%\n item_font = \"Archivo Black Regular 24\"\n item_color = \"#777777\"\n selected_item_color = \"#111111\"\n item_height = 56\n item_padding = 16\n item_spacing = 6\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ label {\n top = 76%\n left = 8%\n width = 31%\n text = \"ENTER / ANSWER THE CALL\"\n align = \"left\"\n color = \"#e8940c\"\n font = \"Archivo Black Regular 24\"\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 8%\n bottom = 10%\n width = 31%\n height = 8\n fg_color = \"#e8940c\"\n bg_color = \"#17120a\"\n border_color = \"#e8940c\"\n text_color = \"#eeeeee\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Archivo Black Regular 24\"\n}\n"
+  },
+  {
+    "slug": "whisky",
+    "title": "Reserve",
+    "tagline": "Warm single-malt still life with an understated selector.",
+    "background": "./whisky/background.jpg",
+    "palette": [
+      "#120805",
+      "#b06c24",
+      "#f1dfbd",
+      "#ffffff"
+    ],
+    "layout": "celebrate",
+    "layoutLabel": "Framed vintage card",
+    "font": "Cinzel",
+    "tags": [
+      "photography",
+      "warm",
+      "minimal"
+    ],
+    "menu": {
+      "title": "RESERVE // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"crop\"\ndesktop-color: \"#170a04\"\n\n+ label {\n top = 10%\n left = 7%\n width = 34%\n text = \"THE RESERVE\"\n align = \"center\"\n color = \"#e6c688\"\n font = \"Cinzel Regular 20\"\n}\n+ label {\n top = 16%\n left = 7%\n width = 34%\n text = \"EST. 1898 / SELECT A VINTAGE\"\n align = \"center\"\n color = \"#b06c24\"\n font = \"Cinzel Regular 20\"\n}\n+ boot_menu {\n left = 7%\n top = 27%\n width = 34%\n height = 43%\n item_font = \"Cinzel Regular 20\"\n item_color = \"#bfa87e\"\n selected_item_color = \"#ffffff\"\n item_height = 62\n item_padding = 24\n item_spacing = 8\n menu_pixmap_style = \"box/frame_*.png\"\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ label {\n top = 75%\n left = 7%\n width = 34%\n text = \"UP / DOWN     ENTER / POUR\"\n align = \"center\"\n color = \"#b06c24\"\n font = \"Cinzel Regular 20\"\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 14%\n bottom = 13%\n width = 20%\n height = 3\n fg_color = \"#e6c688\"\n bg_color = \"#30160b\"\n border_color = \"#b06c24\"\n text_color = \"#e6c688\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Cinzel Regular 20\"\n}\n"
+  },
+  {
+    "slug": "batman_city",
+    "title": "Dark City",
+    "tagline": "Monochrome skyline watched over by a silent guardian.",
+    "background": "./batman_city/background.jpg",
+    "palette": [
+      "#050505",
+      "#ededed",
+      "#777777",
+      "#ffffff"
+    ],
+    "layout": "noir",
+    "layoutLabel": "Low cinematic strip",
+    "font": "Archivo Black",
+    "tags": [
+      "superhero",
+      "monochrome",
+      "city"
+    ],
+    "menu": {
+      "title": "THE NIGHT // BOOT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.jpg\"\ndesktop-image-scale-method: \"crop\"\ndesktop-color: \"#000000\"\n\n+ label {\n top = 58%\n left = 5%\n width = 40%\n text = \"THE NIGHT WATCH\"\n align = \"left\"\n color = \"#ededed\"\n font = \"Archivo Black Regular 24\"\n}\n+ boot_menu {\n left = 5%\n top = 67%\n width = 40%\n height = 20%\n item_font = \"Archivo Black Regular 24\"\n item_color = \"#8d8d8d\"\n selected_item_color = \"#050505\"\n item_height = 40\n item_padding = 14\n item_spacing = 0\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ label {\n top = 90%\n left = 5%\n width = 40%\n text = \"GOTHAM / 02:17\"\n align = \"right\"\n color = \"#ededed\"\n font = \"Archivo Black Regular 24\"\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 5%\n bottom = 5%\n width = 40%\n height = 2\n fg_color = \"#ededed\"\n bg_color = \"#222222\"\n border_color = \"#ededed\"\n text_color = \"#ededed\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"Archivo Black Regular 24\"\n}\n"
+  },
+  {
+    "slug": "thugs",
+    "title": "Afterlife",
+    "tagline": "Flat illustrated skeleton with a muted purple selector.",
+    "background": "./thugs/background.png",
+    "palette": [
+      "#28142f",
+      "#b5687d",
+      "#ead8df",
+      "#ffffff"
+    ],
+    "layout": "ben",
+    "layoutLabel": "Afterlife terminal",
+    "font": "VT323",
+    "tags": [
+      "illustration",
+      "dark",
+      "minimal"
+    ],
+    "menu": {
+      "title": "AFTERLIFE // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working",
+    "themeText": "title-text: \"\"\ndesktop-image: \"background.png\"\ndesktop-image-scale-method: \"stretch\"\ndesktop-color: \"#24112d\"\n\n+ label {\n top = 9%\n left = 5%\n width = 39%\n text = \"> AFTERLIFE_TERMINAL\"\n align = \"left\"\n color = \"#ead8df\"\n font = \"VT323 Regular 24\"\n}\n+ label {\n top = 15%\n left = 5%\n width = 39%\n text = \"SESSION: ROOT / STATUS: UNDEAD\"\n align = \"left\"\n color = \"#b5687d\"\n font = \"VT323 Regular 24\"\n}\n+ boot_menu {\n left = 5%\n top = 25%\n width = 39%\n height = 45%\n item_font = \"VT323 Regular 24\"\n item_color = \"#b98f9c\"\n selected_item_color = \"#ffffff\"\n item_height = 54\n item_padding = 18\n item_spacing = 12\n menu_pixmap_style = \"box/frame_*.png\"\n selected_item_pixmap_style = \"box/sel_*.png\"\n scrollbar = false\n}\n+ label {\n top = 75%\n left = 5%\n width = 39%\n text = \"$ press_enter --to-rise\"\n align = \"left\"\n color = \"#ead8df\"\n font = \"VT323 Regular 24\"\n}\n+ progress_bar {\n id = \"__timeout__\"\n left = 5%\n bottom = 12%\n width = 39%\n height = 5\n fg_color = \"#b5687d\"\n bg_color = \"#160b1c\"\n border_color = \"#ead8df\"\n text_color = \"#ead8df\"\n text = \"@TIMEOUT_NOTIFICATION_SHORT@\"\n font = \"VT323 Regular 24\"\n}\n"
   }
 ];

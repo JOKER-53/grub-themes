@@ -51,11 +51,11 @@ while IFS= read -r theme_file; do
   done < <(sed -nE 's/^[[:space:]]*(font|item_font|selected_item_font)[[:space:]]*=[[:space:]]*"([^"]+)".*/\2/p' "$theme_file" | sort -u)
 done < <(find . -mindepth 2 -maxdepth 2 -name theme.txt | sort)
 
-while IFS=$'\t' read -r slug status; do
+while IFS=$'\t' read -r slug status background; do
   [[ -f "$slug/theme.txt" ]] || { printf 'manifest theme missing: %s\n' "$slug" >&2; errors=1; }
-  [[ -f "$slug/background_ui.png" ]] || { printf 'preview missing: %s\n' "$slug" >&2; errors=1; }
+  [[ -f "${background#./}" ]] || { printf 'manifest preview missing: %s\n' "$background" >&2; errors=1; }
   [[ "$status" == working || "$status" == maintenance ]] || { printf 'invalid status: %s\n' "$status" >&2; errors=1; }
-done < <(jq -r '.[] | [.slug, .status] | @tsv' themes.json)
+done < <(jq -r '.[] | [.slug, .status, .background] | @tsv' themes.json)
 
 (( errors == 0 ))
 printf 'All static installer, manifest, font, and GRUB theme asset checks passed.\n'

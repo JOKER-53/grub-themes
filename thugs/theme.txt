@@ -1,0 +1,60 @@
+title-text: ""
+desktop-image: "background.png"
+desktop-image-scale-method: "stretch"
+desktop-color: "#24112d"
+
++ label {
+ top = 9%
+ left = 5%
+ width = 39%
+ text = "> AFTERLIFE_TERMINAL"
+ align = "left"
+ color = "#ead8df"
+ font = "VT323 Regular 24"
+}
++ label {
+ top = 15%
+ left = 5%
+ width = 39%
+ text = "SESSION: ROOT / STATUS: UNDEAD"
+ align = "left"
+ color = "#b5687d"
+ font = "VT323 Regular 24"
+}
++ boot_menu {
+ left = 5%
+ top = 25%
+ width = 39%
+ height = 45%
+ item_font = "VT323 Regular 24"
+ item_color = "#b98f9c"
+ selected_item_color = "#ffffff"
+ item_height = 54
+ item_padding = 18
+ item_spacing = 12
+ menu_pixmap_style = "box/frame_*.png"
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ label {
+ top = 75%
+ left = 5%
+ width = 39%
+ text = "$ press_enter --to-rise"
+ align = "left"
+ color = "#ead8df"
+ font = "VT323 Regular 24"
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 5%
+ bottom = 12%
+ width = 39%
+ height = 5
+ fg_color = "#b5687d"
+ bg_color = "#160b1c"
+ border_color = "#ead8df"
+ text_color = "#ead8df"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "VT323 Regular 24"
+}

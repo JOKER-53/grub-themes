@@ -1,0 +1,59 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "stretch"
+desktop-color: "#eeeeee"
+
++ label {
+ top = 10%
+ left = 72%
+ width = 22%
+ text = "YoRHa"
+ align = "right"
+ color = "#202025"
+ font = "Space Grotesk Regular 20"
+}
++ label {
+ top = 15%
+ left = 72%
+ width = 22%
+ text = "BOOT SEQUENCE 2B"
+ align = "right"
+ color = "#77777c"
+ font = "Space Grotesk Regular 20"
+}
++ boot_menu {
+ left = 71%
+ top = 29%
+ width = 23%
+ height = 39%
+ item_font = "Space Grotesk Regular 20"
+ item_color = "#77777c"
+ selected_item_color = "#ffffff"
+ item_height = 42
+ item_padding = 16
+ item_spacing = 18
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ label {
+ top = 73%
+ left = 72%
+ width = 22%
+ text = "SYSTEM CHECK / COMPLETE"
+ align = "right"
+ color = "#202025"
+ font = "Space Grotesk Regular 20"
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 72%
+ top = 80%
+ width = 22%
+ height = 2
+ fg_color = "#202025"
+ bg_color = "#b7b7b9"
+ border_color = "#202025"
+ text_color = "#202025"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Space Grotesk Regular 20"
+}

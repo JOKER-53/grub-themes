@@ -1,0 +1,59 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "crop"
+desktop-color: "#000000"
+
++ label {
+ top = 20%
+ left = 8%
+ width = 31%
+ text = "GOTHAM"
+ align = "left"
+ color = "#e8940c"
+ font = "Archivo Black Regular 24"
+}
++ label {
+ top = 27%
+ left = 8%
+ width = 31%
+ text = "THE SIGNAL IS ACTIVE"
+ align = "left"
+ color = "#eeeeee"
+ font = "Archivo Black Regular 24"
+}
++ boot_menu {
+ left = 8%
+ top = 40%
+ width = 31%
+ height = 31%
+ item_font = "Archivo Black Regular 24"
+ item_color = "#777777"
+ selected_item_color = "#111111"
+ item_height = 56
+ item_padding = 16
+ item_spacing = 6
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ label {
+ top = 76%
+ left = 8%
+ width = 31%
+ text = "ENTER / ANSWER THE CALL"
+ align = "left"
+ color = "#e8940c"
+ font = "Archivo Black Regular 24"
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 8%
+ bottom = 10%
+ width = 31%
+ height = 8
+ fg_color = "#e8940c"
+ bg_color = "#17120a"
+ border_color = "#e8940c"
+ text_color = "#eeeeee"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Archivo Black Regular 24"
+}
