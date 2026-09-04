@@ -2,9 +2,9 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Publish the reviewed website from the Updates branch.
   push:
-    branches: ["main"]
+    branches: ["Updates"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
