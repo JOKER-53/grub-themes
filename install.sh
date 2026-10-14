@@ -275,7 +275,7 @@ interactive_pick() {
   [[ "${#themes[@]}" -gt 0 ]] || die "no themes found in $THEMES_SRC"
 
   printf "\n${c_cya}Gorgeous GRUB${c_rst} — pick a theme:\n"
-  printf "${c_dim}Preview every theme at: https://kadhiravaneg.github.io/grub-themes/${c_rst}\n\n"
+  printf "${c_dim}Preview every theme at: https://joker-53.github.io/grub-themes/${c_rst}\n\n"
 
   local i=1
   for t in "${themes[@]}"; do
