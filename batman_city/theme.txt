@@ -1,0 +1,56 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "crop"
+desktop-color: "#000000"
+
++ image {
+ left = 0
+ top = 0
+ file = "overlay.png"
+}
+
++ label {
+ top = 58%
+ left = 5%
+ width = 40%
+ text = "THE NIGHT WATCH"
+ align = "left"
+ color = "#ededed"
+ font = "Archivo Black Regular 24"
+}
++ boot_menu {
+ left = 5%
+ top = 67%
+ width = 40%
+ height = 20%
+ item_font = "Archivo Black Regular 24"
+ item_color = "#8d8d8d"
+ selected_item_color = "#050505"
+ item_height = 40
+ item_padding = 14
+ item_spacing = 0
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ label {
+ top = 90%
+ left = 5%
+ width = 40%
+ text = "GOTHAM / 02:17"
+ align = "right"
+ color = "#ededed"
+ font = "Archivo Black Regular 24"
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 5%
+ bottom = 5%
+ width = 40%
+ height = 2
+ fg_color = "#ededed"
+ bg_color = "#222222"
+ border_color = "#ededed"
+ text_color = "#ededed"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Archivo Black Regular 24"
+}

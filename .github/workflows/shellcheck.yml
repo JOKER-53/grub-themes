@@ -4,10 +4,22 @@ on:
   push:
     paths:
       - 'install.sh'
+      - 'tests/validate.sh'
+      - 'themes.json'
+      - '*/theme.txt'
+      - 'app.js'
+      - 'catalog.generated.js'
+      - 'tools/generate-catalog.mjs'
       - '.github/workflows/shellcheck.yml'
   pull_request:
     paths:
       - 'install.sh'
+      - 'tests/validate.sh'
+      - 'themes.json'
+      - '*/theme.txt'
+      - 'app.js'
+      - 'catalog.generated.js'
+      - 'tools/generate-catalog.mjs'
 
 jobs:
   shellcheck:
@@ -23,3 +35,6 @@ jobs:
           severity: warning
           # SC2034 = unused variable (false positives on colour vars when TTY check strips them)
           ignore_codes: SC2034
+
+      - name: Validate theme assets and manifest
+        run: bash tests/validate.sh

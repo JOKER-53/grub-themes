@@ -1,0 +1,56 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "crop"
+desktop-color: "#000000"
+
++ image {
+ left = 0
+ top = 0
+ file = "overlay.png"
+}
+
++ label {
+ top = 28%
+ left = 6%
+ width = 35%
+ text = "FORTUNE"
+ align = "center"
+ color = "#d8be74"
+ font = "Cinzel Regular 20"
+}
++ label {
+ top = 34%
+ left = 6%
+ width = 35%
+ text = "A SYSTEM IS A CHOICE"
+ align = "center"
+ color = "#f2ead3"
+ font = "Cinzel Regular 20"
+}
++ boot_menu {
+ left = 6%
+ top = 45%
+ width = 35%
+ height = 27%
+ item_font = "Cinzel Regular 20"
+ item_color = "#8c846e"
+ selected_item_color = "#111111"
+ item_height = 46
+ item_padding = 22
+ item_spacing = 1
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 15%
+ top = 78%
+ width = 17%
+ height = 3
+ fg_color = "#d8be74"
+ bg_color = "#28251e"
+ border_color = "#d8be74"
+ text_color = "#d8be74"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Cinzel Regular 20"
+}

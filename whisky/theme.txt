@@ -1,0 +1,66 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "crop"
+desktop-color: "#170a04"
+
++ image {
+ left = 0
+ top = 0
+ file = "overlay.png"
+}
+
++ label {
+ top = 10%
+ left = 7%
+ width = 34%
+ text = "THE RESERVE"
+ align = "center"
+ color = "#e6c688"
+ font = "Cinzel Regular 20"
+}
++ label {
+ top = 16%
+ left = 7%
+ width = 34%
+ text = "EST. 1898 / SELECT A VINTAGE"
+ align = "center"
+ color = "#b06c24"
+ font = "Cinzel Regular 20"
+}
++ boot_menu {
+ left = 7%
+ top = 27%
+ width = 34%
+ height = 43%
+ item_font = "Cinzel Regular 20"
+ item_color = "#bfa87e"
+ selected_item_color = "#ffffff"
+ item_height = 62
+ item_padding = 24
+ item_spacing = 8
+ menu_pixmap_style = "box/frame_*.png"
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ label {
+ top = 75%
+ left = 7%
+ width = 34%
+ text = "UP / DOWN     ENTER / POUR"
+ align = "center"
+ color = "#b06c24"
+ font = "Cinzel Regular 20"
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 14%
+ bottom = 13%
+ width = 20%
+ height = 3
+ fg_color = "#e6c688"
+ bg_color = "#30160b"
+ border_color = "#b06c24"
+ text_color = "#e6c688"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Cinzel Regular 20"
+}

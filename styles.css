@@ -189,10 +189,15 @@ code { font-family: var(--mono); font-size: 0.92em; }
 }
 .card-preview {
   position: relative; z-index: 2;
-  margin: 56px 28px 28px;
-  min-height: 220px;
+  margin: 0;
+  min-height: 0;
   display: flex; align-items: center; justify-content: center;
 }
+.actual-preview { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #000; }
+.actual-preview.scale-crop { height: 100%; object-fit: cover; }
+.actual-preview-wrap { overflow: hidden; border-radius: 8px; background: #000; }
+.actual-screen { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+.actual-menu { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 /* Constrain mocks so the background image stays visible around them */
 .card-preview > .grub { max-width: 340px; width: 100%; }
 .card-preview > .g-bmw,
@@ -522,8 +527,8 @@ code { font-family: var(--mono); font-size: 0.92em; }
   border: 1px solid rgba(255,122,24,0.4);
 }
 
-/* ── Maintenance card dimming ──────────────────────────────────────────────── */
-.card-maintenance .card-bg { opacity: 0.4; filter: grayscale(50%); }
+/* Maintenance is metadata only; never alter the real GRUB preview colours. */
+.card-maintenance .actual-preview { opacity: 1; filter: none; }
 .card-maintenance:hover { border-color: #ff7a18; }
 .card-maintenance .card-meta { border-top-color: rgba(255,122,24,0.3); }
 

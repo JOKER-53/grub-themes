@@ -101,8 +101,8 @@
   {
     "slug": "nimbus",
     "title": "Nimbus",
-    "tagline": "macOS-style horizontal dock under a soft sky.",
-    "background": "./nimbus/background.gif",
+    "tagline": "Soft sky with a GRUB-compatible vertical selector.",
+    "background": "./nimbus/background.png",
     "palette": [
       "#1a2438",
       "#cfe1ff",
@@ -110,13 +110,12 @@
       "#9fbce6"
     ],
     "layout": "nimbus",
-    "layoutLabel": "Bottom dock",
+    "layoutLabel": "Vertical selector",
     "font": "Space Grotesk",
     "tags": [
       "ambient",
       "cozy",
-      "minimal",
-      "animated"
+      "minimal"
     ],
     "menu": {
       "title": "boot \u00b7 nimbus",
@@ -135,7 +134,7 @@
     "slug": "street",
     "title": "Street",
     "tagline": "Cyberpunk right-rail terminal with magenta glitch.",
-    "background": "./street/background.gif",
+    "background": "./street/background_ui.png",
     "palette": [
       "#0b0218",
       "#ff3df0",
@@ -167,7 +166,7 @@
     "slug": "gas_station",
     "title": "Gas Station",
     "tagline": "Retro pump display \u2014 pick your fuel and roll.",
-    "background": "./gas_station/background.gif",
+    "background": "./gas_station/background_ui.png",
     "palette": [
       "#2a1408",
       "#ffb86b",
@@ -180,7 +179,6 @@
     "tags": [
       "ambient",
       "lofi",
-      "animated",
       "cozy"
     ],
     "menu": {
@@ -232,7 +230,7 @@
   {
     "slug": "celebrate",
     "title": "Celebrate",
-    "tagline": "Hand-drawn line catalog \u2014 every OS a different hat.",
+    "tagline": "Hand-drawn catalog framing a vertical GRUB selector.",
     "background": "./celebrate/background.jpg",
     "palette": [
       "#d6d3cb",
@@ -241,7 +239,7 @@
       "#ffffff"
     ],
     "layout": "celebrate",
-    "layoutLabel": "Line catalog",
+    "layoutLabel": "Vertical catalog",
     "font": "Cinzel",
     "tags": [
       "minimal",
@@ -266,7 +264,7 @@
   {
     "slug": "ben",
     "title": "Omnitrix",
-    "tagline": "Ben 10 dial selector \u2014 green plasma core, hexagonal lock.",
+    "tagline": "Omnitrix artwork framing a vertical GRUB selector.",
     "background": "./ben/background.jpg",
     "palette": [
       "#0a3a55",
@@ -275,7 +273,7 @@
       "#caffaa"
     ],
     "layout": "ben",
-    "layoutLabel": "Omnitrix dial",
+    "layoutLabel": "Vertical selector",
     "font": "VT323",
     "tags": [
       "cartoon",
@@ -319,6 +317,326 @@
     "menu": {
       "title": "CHAPTER I \u00b7 THE BOOT",
       "timeout": "MIDNIGHT 00:00",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "motorcycle",
+    "title": "Road King",
+    "tagline": "Custom motorcycle with a restrained road-ready selector.",
+    "background": "./motorcycle/background.jpg",
+    "palette": [
+      "#101018",
+      "#a01222",
+      "#ffffff",
+      "#8c8c86"
+    ],
+    "layout": "miku",
+    "layoutLabel": "Framed ignition console",
+    "font": "Orbitron",
+    "tags": [
+      "motorcycle",
+      "automotive",
+      "photography"
+    ],
+    "menu": {
+      "title": "ROAD // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "spider",
+    "title": "Spider",
+    "tagline": "Cinematic red-and-blue hero with a right-side boot menu.",
+    "background": "./spider/background.jpg",
+    "palette": [
+      "#000000",
+      "#d82232",
+      "#244d88",
+      "#ffffff"
+    ],
+    "layout": "noir",
+    "layoutLabel": "Right hero rail",
+    "font": "Archivo Black",
+    "tags": [
+      "superhero",
+      "cinematic",
+      "dark"
+    ],
+    "menu": {
+      "title": "SPIDER // BOOT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "comic_spider",
+    "title": "Comic Spider",
+    "tagline": "Bold comic portrait framing a clean left-side selector.",
+    "background": "./comic_spider/background.jpg",
+    "palette": [
+      "#000000",
+      "#e02a34",
+      "#ffffff",
+      "#777777"
+    ],
+    "layout": "noir",
+    "layoutLabel": "Comic issue stack",
+    "font": "Archivo Black",
+    "tags": [
+      "superhero",
+      "comic",
+      "minimal"
+    ],
+    "menu": {
+      "title": "WEB // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "bmw_gtr",
+    "title": "BMW GTR",
+    "tagline": "Motorsport garage photography with a precise blue selector.",
+    "background": "./bmw_gtr/background.jpg",
+    "palette": [
+      "#08101f",
+      "#3b9cff",
+      "#d8e8ff",
+      "#ffffff"
+    ],
+    "layout": "bmw",
+    "layoutLabel": "Right telemetry console",
+    "font": "Orbitron",
+    "tags": [
+      "automotive",
+      "motorsport",
+      "photography"
+    ],
+    "menu": {
+      "title": "M POWER // BOOT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "money",
+    "title": "Fortune",
+    "tagline": "Ink-drawn currency roll against a deep black field.",
+    "background": "./money/background.jpg",
+    "palette": [
+      "#000000",
+      "#d8be74",
+      "#f2ead3",
+      "#ffffff"
+    ],
+    "layout": "celebrate",
+    "layoutLabel": "Centered fortune column",
+    "font": "Cinzel",
+    "tags": [
+      "editorial",
+      "minimal",
+      "dark"
+    ],
+    "menu": {
+      "title": "FORTUNE // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "yorha",
+    "title": "YoRHa",
+    "tagline": "Monochrome android battlefield with a minimal system list.",
+    "background": "./yorha/background.jpg",
+    "palette": [
+      "#eeeeee",
+      "#202025",
+      "#77777c",
+      "#ffffff"
+    ],
+    "layout": "nimbus",
+    "layoutLabel": "Right system readout",
+    "font": "Space Grotesk",
+    "tags": [
+      "anime",
+      "monochrome",
+      "gaming"
+    ],
+    "menu": {
+      "title": "YoRHa // SYSTEM",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "batman_signal",
+    "title": "Gotham Signal",
+    "tagline": "Amber city signal with a stark left-side menu.",
+    "background": "./batman_signal/background.jpg",
+    "palette": [
+      "#000000",
+      "#e8940c",
+      "#eeeeee",
+      "#ffffff"
+    ],
+    "layout": "noir",
+    "layoutLabel": "Signal response console",
+    "font": "Archivo Black",
+    "tags": [
+      "superhero",
+      "minimal",
+      "orange"
+    ],
+    "menu": {
+      "title": "GOTHAM // BOOT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "whisky",
+    "title": "Reserve",
+    "tagline": "Warm single-malt still life with an understated selector.",
+    "background": "./whisky/background.jpg",
+    "palette": [
+      "#120805",
+      "#b06c24",
+      "#f1dfbd",
+      "#ffffff"
+    ],
+    "layout": "celebrate",
+    "layoutLabel": "Framed vintage card",
+    "font": "Cinzel",
+    "tags": [
+      "photography",
+      "warm",
+      "minimal"
+    ],
+    "menu": {
+      "title": "RESERVE // SELECT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "batman_city",
+    "title": "Dark City",
+    "tagline": "Monochrome skyline watched over by a silent guardian.",
+    "background": "./batman_city/background.jpg",
+    "palette": [
+      "#050505",
+      "#ededed",
+      "#777777",
+      "#ffffff"
+    ],
+    "layout": "noir",
+    "layoutLabel": "Low cinematic strip",
+    "font": "Archivo Black",
+    "tags": [
+      "superhero",
+      "monochrome",
+      "city"
+    ],
+    "menu": {
+      "title": "THE NIGHT // BOOT",
+      "timeout": "15s",
+      "entries": [
+        "CachyOS Linux",
+        "Advanced options",
+        "Windows Boot Manager",
+        "UEFI Firmware"
+      ],
+      "selected": 0
+    },
+    "status": "working"
+  },
+  {
+    "slug": "thugs",
+    "title": "Afterlife",
+    "tagline": "Flat illustrated skeleton with a muted purple selector.",
+    "background": "./thugs/background.png",
+    "palette": [
+      "#28142f",
+      "#b5687d",
+      "#ead8df",
+      "#ffffff"
+    ],
+    "layout": "ben",
+    "layoutLabel": "Afterlife terminal",
+    "font": "VT323",
+    "tags": [
+      "illustration",
+      "dark",
+      "minimal"
+    ],
+    "menu": {
+      "title": "AFTERLIFE // SELECT",
+      "timeout": "15s",
       "entries": [
         "CachyOS Linux",
         "Advanced options",

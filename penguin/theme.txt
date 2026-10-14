@@ -9,7 +9,7 @@ desktop-color: "#101418"
     height                     = 49%
     item_font                  = "IBM Plex Mono Regular 18"
     item_color                 = "#dddddd"
-    selected_item_color        = "#ff7a18"
+    selected_item_color        = "#ffffff"
     item_height                = 52
     item_padding               = 14
     item_spacing               = 4

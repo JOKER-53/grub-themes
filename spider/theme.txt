@@ -1,0 +1,56 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "stretch"
+desktop-color: "#000000"
+
++ image {
+ left = 0
+ top = 0
+ file = "overlay.png"
+}
+
++ label {
+ top = 13%
+ left = 70%
+ width = 24%
+ text = "SPIDER"
+ align = "right"
+ color = "#d82232"
+ font = "Archivo Black Regular 24"
+}
++ label {
+ top = 19%
+ left = 70%
+ width = 24%
+ text = "CHOOSE YOUR PATH"
+ align = "right"
+ color = "#dce8ff"
+ font = "Archivo Black Regular 24"
+}
++ boot_menu {
+ left = 67%
+ top = 31%
+ width = 27%
+ height = 43%
+ item_font = "Archivo Black Regular 24"
+ item_color = "#7189b2"
+ selected_item_color = "#ffffff"
+ item_height = 68
+ item_padding = 16
+ item_spacing = 11
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 78%
+ bottom = 13%
+ width = 16%
+ height = 3
+ fg_color = "#d82232"
+ bg_color = "#244d88"
+ border_color = "#d82232"
+ text_color = "#dce8ff"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Archivo Black Regular 24"
+}

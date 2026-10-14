@@ -1,0 +1,66 @@
+title-text: ""
+desktop-image: "background.jpg"
+desktop-image-scale-method: "crop"
+desktop-color: "#000000"
+
++ image {
+ left = 0
+ top = 0
+ file = "overlay.png"
+}
+
++ label {
+ top = 8%
+ left = 4%
+ width = 28%
+ text = "ROAD KING"
+ align = "left"
+ color = "#a01222"
+ font = "Orbitron Regular 20"
+}
++ label {
+ top = 13%
+ left = 4%
+ width = 28%
+ text = "IGNITION / READY"
+ align = "left"
+ color = "#101018"
+ font = "Orbitron Regular 20"
+}
++ boot_menu {
+ left = 4%
+ top = 21%
+ width = 28%
+ height = 39%
+ item_font = "Orbitron Regular 20"
+ item_color = "#101018"
+ selected_item_color = "#ffffff"
+ item_height = 58
+ item_padding = 18
+ item_spacing = 7
+ menu_pixmap_style = "box/frame_*.png"
+ selected_item_pixmap_style = "box/sel_*.png"
+ scrollbar = false
+}
++ label {
+ top = 64%
+ left = 4%
+ width = 28%
+ text = "UP/DOWN  SELECT     ENTER  RIDE"
+ align = "left"
+ color = "#101018"
+ font = "Orbitron Regular 20"
+}
++ progress_bar {
+ id = "__timeout__"
+ left = 4%
+ top = 70%
+ width = 28%
+ height = 6
+ fg_color = "#a01222"
+ bg_color = "#d8d1c4"
+ border_color = "#101018"
+ text_color = "#101018"
+ text = "@TIMEOUT_NOTIFICATION_SHORT@"
+ font = "Orbitron Regular 20"
+}
