@@ -224,6 +224,11 @@ sudo ./install.sh -u --purge       # restore + delete theme files from /boot
 ```
 ---
 
+## Author
+
+**JOKER-53** (alias **Kadhiravan E.G.**)
+- GitHub: [@JOKER-53](https://github.com/JOKER-53)
+
 ## License
 
 MIT for the code (`install.sh`, static site). See [LICENSE](./LICENSE).
